@@ -1,2 +1,2 @@
-# rabbitmq-hello-word
-simple hello word using rabbit mq
+# rabbitmq
+https://www.rabbitmq.com/getstarted.html
