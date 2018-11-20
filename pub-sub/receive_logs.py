@@ -1,4 +1,5 @@
 import pika
+import string
 
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
 channel = connection.channel()
@@ -15,7 +16,17 @@ channel.queue_bind(exchange='logs',
 print(' [*] Waiting for logs. To exit press CTRL+C')
 
 def callback(ch, method, properties, body):
-    print(" [x] %r" % body)
+    values = body.split()
+    result = 0
+    if(values[2].decode("utf-8") is "+"):
+        result = int(values[0]) + int(values[1])
+    elif(values[2].decode("utf-8") is "-"):
+        result = int(values[0]) - int(values[1])
+    elif(values[2].decode("utf-8") is "/"):
+        result = int(values[0]) / int(values[1])
+    elif(values[2].decode("utf-8") is "*"):
+        result = int(values[0]) * int(values[1])
+    print(" [x] %r" % result)
 
 channel.basic_consume(on_message_callback=callback,
                       queue=queue_name)
