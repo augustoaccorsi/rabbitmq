@@ -7,7 +7,7 @@ channel = connection.channel()
 channel.exchange_declare(exchange='logs',
                          exchange_type='fanout')
 
-message = ' '.join(sys.argv[1:]) or "info: Hello World!"
+message = ' '.join(sys.argv[1:]) or "dummy message"
 channel.basic_publish(exchange='logs',
                       routing_key='',
                       body=message)
