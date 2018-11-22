@@ -1,6 +1,7 @@
 import pika
 import uuid
 import sys
+import datetime
 
 class CalculationRpcClient(object):
     def __init__(self):
@@ -36,3 +37,4 @@ class CalculationRpcClient(object):
 calculation_rpc = CalculationRpcClient()
 response = calculation_rpc.call()
 print(" [.] Response: %r" % response)
+print(datetime.datetime.now())

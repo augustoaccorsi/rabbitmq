@@ -1,4 +1,5 @@
 import pika
+import datetime
 
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
 
@@ -19,6 +20,7 @@ def calculate(body):
     return 0;
 
 def on_request(ch, method, props, body):
+    print(datetime.datetime.now())
     print(" [x]  %r" % body)
     response = calculate(body)
 
