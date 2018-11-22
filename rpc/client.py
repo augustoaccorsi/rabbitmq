@@ -34,6 +34,5 @@ class CalculationRpcClient(object):
         return float(self.response)
 
 calculation_rpc = CalculationRpcClient()
-
 response = calculation_rpc.call()
-print(" [.] Got %r" % response)
+print(" [.] Response: %r" % response)
