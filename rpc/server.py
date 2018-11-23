@@ -21,7 +21,7 @@ def calculate(body):
 
 def on_request(ch, method, props, body):
     print(datetime.datetime.now())
-    print(" [x]  %r" % body)
+    #print(" [x]  %r" % body)
     response = calculate(body)
 
     ch.basic_publish(exchange='',

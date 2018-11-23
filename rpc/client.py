@@ -34,7 +34,8 @@ class CalculationRpcClient(object):
             self.connection.process_data_events()
         return float(self.response)
 
-calculation_rpc = CalculationRpcClient()
-response = calculation_rpc.call()
-print(" [.] Response: %r" % response)
-print(datetime.datetime.now())
+for x in range (0, 500):
+    calculation_rpc = CalculationRpcClient()
+    response = calculation_rpc.call()
+    #print(" [.] Response: %r" % response)
+    print(datetime.datetime.now())
